@@ -11,5 +11,5 @@ public interface ReservationService {
 
     Mono<Reservation> updateReservation(String id, Mono<Reservation> reservationMono);
 
-    Mono<Reservation> deleteReservation(String id);
+    Mono<Boolean> deleteReservation(String id);
 }

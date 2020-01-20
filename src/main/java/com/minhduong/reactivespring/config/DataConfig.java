@@ -16,11 +16,11 @@ import org.springframework.data.mongodb.core.SimpleReactiveMongoDatabaseFactory;
 @Configuration
 @Import(EmbeddedMongoAutoConfiguration.class)
 public class DataConfig {
-    public static final String DATEBASE_NAME = "reservations";
+    public static final String DATABASE_NAME = "reservations";
 
     @Bean
     public ReactiveMongoDatabaseFactory mongoDatabaseFactory (MongoClient mongoClient) {
-        return new SimpleReactiveMongoDatabaseFactory(mongoClient, DATEBASE_NAME);
+        return new SimpleReactiveMongoDatabaseFactory(mongoClient, DATABASE_NAME);
     }
 
     @Bean
