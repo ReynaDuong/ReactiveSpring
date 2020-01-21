@@ -5,6 +5,7 @@ import com.minhduong.reactivespring.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -25,6 +26,11 @@ public class ReservationResource {
         return reservationService.getReservation(id);
     }
 
+    @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Flux<Reservation> getAllReservation() {
+        return reservationService.listAllReservation();
+    }
+
     @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public Mono<Reservation> createReservation (@RequestBody Mono<Reservation> reservation) {
         return reservationService.createReservation(reservation);
@@ -39,4 +45,6 @@ public class ReservationResource {
     public Mono<Boolean> deleteReservation(@PathVariable String id) {
         return reservationService.deleteReservation(id);
     }
+
+
 }
