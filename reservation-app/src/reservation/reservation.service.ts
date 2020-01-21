@@ -20,6 +20,10 @@ export class ReservationService {
 
         return this.http.post<Reservation>(this.reservationUrl, body, httpOptions);
     }
+
+    getReservation(): Observable<Reservation[]> {
+        return this.http.get<Reservation[]>(this.reservationUrl);
+    }
 }
 
 export class ReservationRequest {
