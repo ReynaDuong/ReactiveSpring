@@ -22,7 +22,6 @@ export class ReservationService {
     }
 }
 
-
 export class ReservationRequest {
 
     roomNumber: number;

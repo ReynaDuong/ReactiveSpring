@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {ReservationRequest, ReservationService} from "./reservation.service";
+import {ReservationRequest, ReservationService} from "../reservation/reservation.service";
 
 
 @Component({
