@@ -39,25 +39,51 @@
 					
 					<div class="row" *ngIf="rooms">
 						<div class="col-12">
-						    <div class="table-responsive">
-                                <table class="table" id="roomsTable">
-                                    <tbody>
-                                        <tr *ngFor="let room of rooms">
-                                            <td>
-                                                <img src="../assets/images/intro_room.jpg">
-                                            </td>
-	                                        <td>
-		                                        <strong>Room #: {{room.roomNumber}}</strong>
-		                                        <strong>Price: {{room.price}}</strong>
-	                                        </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+							<div class="table-responsive">
+								<table class="table" id="roomsTable">
+									<tbody>
+									<tr *ngFor="let room of rooms">
+										<td>
+											<img src="../assets/images/intro_room.jpg">
+										</td>
+										<td>
+											<strong>Room #: {{room.roomNumber}}</strong>
+											<br/>
+											<strong>Price: {{room.price}}</strong>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			
+			<hr/>
+			
+			<h1>Reserve Rooms</h1>
+			
+			<form class="form-horizontal" [formGroup]="roomSearchForm">
+				<label for="checkin" class="col-4">Check In</label>
+				<div class="col-8">
+					<input id="checkin" type="date" class="form-control" formControlName="checkin">
+				</div>
+				
+				<label for="checkout" class="col-4">Check Out</label>
+				<div class="col-8">
+					<input id="checkout" type="date" class="form-control" formControlName="checkout">
+				</div>
+				
+				<label for="roomNumber" class="col-4">Room Number</label>
+				<div class="col-8">
+					<select id="roomNumber" formControlName="roomNumber">
+						<option *ngFor="let room of rooms" [value]="room.roomNumber + '|' + room.price">
+							{{room.roomNumber}}
+						</option>
+					</select>
+				</div>
+			</form>
 		
 		</article>
 	</div><!-- welcome -->
@@ -221,5 +247,3 @@
 		</div>
 	</article>
 </footer>
-
-<script src="../assets/images/script.js"></script>
