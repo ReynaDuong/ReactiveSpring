@@ -9,7 +9,7 @@ public interface ReservationService {
 
     Mono<Reservation> createReservation(Mono<Reservation> reservationMono);
 
-    Mono<Reservation> updateReservation(String id, Mono<Reservation> reservationMono);
+    Mono<Reservation> updateReservationPrice(String id, Mono<Reservation> reservationMono);
 
     Mono<Boolean> deleteReservation(String id);
 }

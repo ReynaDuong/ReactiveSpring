@@ -30,10 +30,6 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public Mono<Reservation> updateReservation(String id, Mono<Reservation> reservationMono) {
-        return reactiveMongoOperations.save(reservationMono);
-    }
-
     public Mono<Reservation> updateReservationPrice(String id, Mono<Reservation> reservationMono) {
         return reservationMono.flatMap(reservation -> reactiveMongoOperations.findAndModify(
                 Query.query(Criteria.where("id").is(id)),
